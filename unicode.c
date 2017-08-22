@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   unicode.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/22 18:00:17 by acolas           ###   ########.fr       */
+/*   Created: 2017/08/22 15:18:02 by acolas            #+#    #+#             */
+/*   Updated: 2017/08/22 15:20:48 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <unistd.h>
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
-# include "libft.h"
+int		main(void)
+{
+	unsigned char c;
 
-# define ERROR -1
-# define OK 1
-# define END 0
+	c = 0xe1;
+	write(1, &c, 1);
+	c = 0x88;
+	write(1, &c, 1);	
+	c = 0x0a;
+	write(1, &c, 1);
+	return (0);
 
-
-int ft_printf(const char *format, ...);
-int	ft_flag_s(char *s);
-
-#endif
+}	

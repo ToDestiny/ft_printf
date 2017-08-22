@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_flag_s.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/22 18:00:17 by acolas           ###   ########.fr       */
+/*   Created: 2017/08/22 17:08:38 by acolas            #+#    #+#             */
+/*   Updated: 2017/08/22 18:00:13 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdarg.h>
-# include "libft.h"
+int		ft_flag_s(char *s)
+{
+	int		i;
 
-# define ERROR -1
-# define OK 1
-# define END 0
-
-
-int ft_printf(const char *format, ...);
-int	ft_flag_s(char *s);
-
-#endif
+	i = 0;
+	if (!s)
+		return (ERROR);
+	ft_putstr(s);
+	return (OK);
+}
