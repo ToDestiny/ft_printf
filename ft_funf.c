@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag_s.c                                        :+:      :+:    :+:   */
+/*   ft_funf.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/22 17:08:38 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/23 18:51:28 by acolas           ###   ########.fr       */
+/*   Created: 2017/08/23 17:20:44 by acolas            #+#    #+#             */
+/*   Updated: 2017/08/23 18:21:52 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int		ft_printf_putstr(char *s)
+int		ft_funf(format)
 {
-	int			i;
-	static int	n;
-
-	i = 0;
-	if (!s)
-		return (ERROR);
-	i =  ft_strlen(s);
-	n = i + n;
-	ft_putstr(s);
-	return (OK);
+	return (0);
 }

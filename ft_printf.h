@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/22 18:00:17 by acolas           ###   ########.fr       */
+/*   Updated: 2017/08/23 18:51:26 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,23 @@
 # include <stdarg.h>
 # include "libft.h"
 
+# define BUFSZ  10
 # define ERROR -1
 # define OK 1
 # define END 0
 
+typedef struct		s_type
+{
+	char	specifier;
+	char	flags;
+	int		width;
+	int		precision;
+	char	length;
+
+}					t_type;
 
 int ft_printf(const char *format, ...);
-int	ft_flag_s(char *s);
+int	ft_printf_putstr(char *s);
+int	ft_funf(const char *format);
 
 #endif

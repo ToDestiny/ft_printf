@@ -6,42 +6,61 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 14:42:44 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/22 17:22:10 by acolas           ###   ########.fr       */
+/*   Updated: 2017/08/23 18:51:08 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+va_list		*ft_flag(va_list ap, char format)
 {
-	va_list		ap;
-	va_list		ap2;
-	char		*s;
-	
+	if (format == '-' && ap <= 0)
+		ft_printf_putstr('-');
+	else if (format == '+' && ap >= 0)
+		ft_printf_putstr('+');
+	else if (format == '#')
+	{
+		format++;
+		if (format == 'o')
+			ft_
+	}
+}
+
+int			ft_printf(const char *format, ...)
+{
+	va_list			ap;
+	static int		n;
+
+	i = 0;
 	va_start(ap, format);
-	va_copy(ap2, ap);
 	while (*format)
 	{
-		if (*format == 's')
+		if (*format == '%')
 		{
-			s = va_arg(ap, char *);
-			if (ft_flag_s(s) != 0)
-				return (ERROR);
+			format++;
+			if (*format == '+' || *format == '-' || *format == ' ' || 
+					format == '#')
+			{
+				ft_flag(ap, *format);
+				format++;
+			}
+			if (*format >= '0' && *format <= '9')
+				format++;
+			ft_type_flag(ap, *format);
+			format++;
+			if (*format == '\0')
+				return (0);
 		}
+		ft_printf_putstr(*format);
+	format++;	
 	}
 	va_end(ap);
-	va_end(ap2);
 	return (END);
 }
 
-int		main(int ac, char ** av)
+int		main(void)
 {
-	if (av)
-	{
-		ac = 0;
-		ft_putstr("test\n");
-		ft_printf("s", "hello");
-		ft_putchar('\n');
-	}
+	ft_printf("%s", "hello");
+	ft_putchar('\n');
 	return (END);
 }
