@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/23 18:51:26 by acolas           ###   ########.fr       */
+/*   Updated: 2017/09/04 17:42:43 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,21 @@ typedef struct		s_type
 	char	length;
 
 }					t_type;
+
+union				uflag
+{
+	char 			*s;
+	short int		h;
+	long int		l;
+	double			d;
+	long double		dl;
+	float			f;
+	long long int	ll;
+	intmax_t		j;
+	uintmax_t		k;
+	size_t			z;
+	ssize_t			x;
+}
 
 int ft_printf(const char *format, ...);
 int	ft_printf_putstr(char *s);
