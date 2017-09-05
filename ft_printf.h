@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/05 15:49:16 by acolas           ###   ########.fr       */
+/*   Updated: 2017/09/05 18:08:49 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ union				Data
 	uintmax_t		k;
 	size_t			z;
 	ssize_t			x;
-}
+};
 
 int ft_printf(const char *format, ...);
 int	ft_printf_putstr(char *s);
