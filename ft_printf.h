@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/04 17:42:43 by acolas           ###   ########.fr       */
+/*   Updated: 2017/09/05 15:49:16 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct		s_type
 
 }					t_type;
 
-union				uflag
+union				Data
 {
 	char 			*s;
 	short int		h;

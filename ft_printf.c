@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 14:42:44 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/23 18:51:08 by acolas           ###   ########.fr       */
+/*   Updated: 2017/09/05 15:49:12 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 va_list		*unknown_flag(va_list ap, char format)
 {
 	va_arg(ap, void*);
-	ft_printf_putstr(format);
+	ft_putstr(format);
 	return (0);
 }
 
@@ -33,22 +33,22 @@ va_list		*ft_type_flag(va_list ap, char format)
 va_list		*ft_flag(va_list ap, char format)
 {
 	if (format == '-' && ap < 0)
-		ft_printf_putstr('-');
+		ft_putstr('-');
 	else if (format == '+' && ap >= 0)
-		ft_printf_putstr('+');
+		ft_putstr('+');
 	else if (format == '#')
 	{
 		format++;
 		if (format == 'o')
-			ft_printf_putstr('0');
+			ft_putstr('0');
 		if (format == 'x')
-			ft_printf_putstr("0x");
+			ft_putstr("0x");
 		if (format == 'X')
-			ft_printf_putstr("0X");
+			ft_putstr("0X");
 		format--;
 	}
 	else if (format == ' ' && ap > 0)
-	ft_printf_putstr(' ');
+	ft_putstr(' ');
 	return (0);
 }
 
@@ -77,7 +77,7 @@ int			ft_printf(const char *format, ...)
 			if (*format == '\0')
 				return (0);
 		}
-		ft_printf_putstr(*format);
+		ft_putstr(*format);
 	format++;	
 	}
 	va_end(ap);
