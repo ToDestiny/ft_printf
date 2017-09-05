@@ -12,9 +12,27 @@
 
 #include "ft_printf.h"
 
+va_list		*unknown_flag(va_list ap, char format)
+{
+	va_arg(ap, void*);
+	ft_printf_putstr(format);
+	return (0);
+}
+
+va_list		*ft_type_flag(va_list ap, char format)
+{
+	if ((format == 'i') || (format == 'd'))
+		ft_putnbr(va_arg(ap, int));
+	else if (format == 's')
+		ft_putstr(va_arg(ap, char *));
+	else if (format == 'c')
+		ft_putchar(va_arg(ap, int));
+
+}
+
 va_list		*ft_flag(va_list ap, char format)
 {
-	if (format == '-' && ap <= 0)
+	if (format == '-' && ap < 0)
 		ft_printf_putstr('-');
 	else if (format == '+' && ap >= 0)
 		ft_printf_putstr('+');
@@ -22,8 +40,16 @@ va_list		*ft_flag(va_list ap, char format)
 	{
 		format++;
 		if (format == 'o')
-			ft_
+			ft_printf_putstr('0');
+		if (format == 'x')
+			ft_printf_putstr("0x");
+		if (format == 'X')
+			ft_printf_putstr("0X");
+		format--;
 	}
+	else if (format == ' ' && ap > 0)
+	ft_printf_putstr(' ');
+	return (0);
 }
 
 int			ft_printf(const char *format, ...)
