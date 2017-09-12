@@ -6,12 +6,13 @@
 #    By: acolas <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/18 14:42:35 by acolas            #+#    #+#              #
-#    Updated: 2017/08/18 15:17:19 by acolas           ###   ########.fr        #
+#    Updated: 2017/09/12 13:40:16 by acolas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 SRC = ft_printf.c \
+	  ft_init_struc.c \
 
 CC = gcc
 OBJ = $(SRC:.c=.o)

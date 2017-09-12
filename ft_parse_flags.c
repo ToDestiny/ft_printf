@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struc.c                                    :+:      :+:    :+:   */
+/*   ft_parse_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 21:12:15 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/12 18:26:11 by acolas           ###   ########.fr       */
+/*   Created: 2017/09/12 15:56:38 by acolas            #+#    #+#             */
+/*   Updated: 2017/09/12 18:26:15 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_init_struc(t_type *var)
+int		ft_parse_flags(t_type *var, const char *format)
 {
-	var->sign = 0;
-	var->left_justify = 0;
-	var->space = 0;
-	var->hashtag = 0;
-	var->pad = 0;
-	return;
+	format++;
+	while (*format == '+' || *format == '-' || *format == ' ' ||
+			*format == '#' || *format == '0')
+	{
+		if (*format == '+')
+			var->sign = 1;
+		else if (*format == '-')
+			var->left_justify = 1;
+		else if (*format == ' ')
+			var->space = 1;	
+		else if (*format == '#')
+			var->hashtag = 1;
+		else if (*format == '0')
+			var->pad = 1;		
+		format++;
+	}
+	return (OK);
 }

@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struc.c                                    :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 21:12:15 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/12 18:26:11 by acolas           ###   ########.fr       */
+/*   Created: 2017/09/12 17:05:06 by acolas            #+#    #+#             */
+/*   Updated: 2017/09/12 17:15:37 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
 
-void		ft_init_struc(t_type *var)
+int		main(void)
 {
-	var->sign = 0;
-	var->left_justify = 0;
-	var->space = 0;
-	var->hashtag = 0;
-	var->pad = 0;
-	return;
+	printf("%10d\n", 456789);
+	printf("%-10d\n", 456789);
+	return (0);
 }
