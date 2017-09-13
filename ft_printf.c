@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:24:08 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/12 18:26:09 by acolas           ###   ########.fr       */
+/*   Updated: 2017/09/13 17:45:25 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,21 @@ int			ft_printf(const char *format, ...)
 	ft_init_struc(&var);
 	while (*format)
 	{
-		if (*format == '%')
+		if (*format == '%' && *(format + 1) != '%')
 		{
-			ft_putchar('%');
-			ft_putchar('\n');
-			ft_parse_flags(&var, format);
-		//	ft_parse_width(format);
-		//	ft_parse_precision(format);
-		//	ft_parse_type(format);
+			ft_parse_flags(&var, &format);
+			printf("sign == %d\nleft_justify == %d\nspace == %d\nhashtag == %d\npad == %d\n", var.sign, var.left_justify, var.space, var.hashtag, var.pad);
+			// width
+			// precision
+			// write %s etc
+			ft_init_struc(&var);
 		}
-		format++;
+		else
+		{
+			ft_putchar_fd(*format, 1);
+			format++;
+		}
 	}
-	//ft_putstr(&format[0]);
-	printf("sign == %d\nleft_justify == %d\nspace == %d\nhashtag == %d\npad == %d\n", var.sign, var.left_justify, var.space, var.hashtag, var.pad);
 	va_end(ap);
 	return (END);
 }
@@ -47,6 +49,7 @@ int			ft_printf(const char *format, ...)
 
 int			main(void)
 {
-	ft_printf("%-0\n");
+	ft_printf("@@@@@%-0@@@@@%s@@@@@%d@@@@@%c\n");
+	printf("%-10.10hhs", "test");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/12 18:26:18 by acolas           ###   ########.fr       */
+/*   Updated: 2017/09/13 15:52:26 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_type
 	int		pad;
 
 	int		width;
+	int		precision;
 
 	union	Data
 	{
@@ -46,6 +47,6 @@ typedef struct		s_type
 
 int 	ft_printf(const char *format, ...);
 void	ft_init_struc(t_type *var);
-int		ft_parse_flags(t_type *var, const char *format);
+int		ft_parse_flags(t_type *var, const char **format);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 14:42:44 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/06 19:23:17 by acolas           ###   ########.fr       */
+/*   Updated: 2017/09/13 15:37:32 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ va_list		*ft_flag(va_list ap, char format)
 	else if (format == '+' && ap >= 0)
 		ft_putchar('+');
 	else if (format == '#')
-	{
+	{UFSZ  10
 		format++;
 		if (format == 'o')
 			ft_putchar('0');

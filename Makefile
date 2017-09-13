@@ -6,24 +6,25 @@
 #    By: acolas <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/18 14:42:35 by acolas            #+#    #+#              #
-#    Updated: 2017/09/12 13:40:16 by acolas           ###   ########.fr        #
+#    Updated: 2017/09/13 15:40:48 by acolas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = test
 SRC = ft_printf.c \
 	  ft_init_struc.c \
+	  ft_parse_flags.c \
 
 CC = gcc
 OBJ = $(SRC:.c=.o)
-HEADER =
+HEADER = ./libft/libft.a
 CFLAGS = -Wall -Werror -Wextra
 .PHONY : all clean fclean re
 
 all : $(NAME)
 
 %.o:%.c
-	@$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(HEADER)
+	@$(CC) $(CFLAGS) -o $(NAME) $(SRC) -I libft $(HEADER)
 
 $(NAME) : $(OBJ)
 	@make -C $(NAME)
