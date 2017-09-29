@@ -10,10 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = test
+NAME = ft_printf
 SRC = ft_printf.c \
 	  ft_init_struc.c \
 	  ft_parse_flags.c \
+	  ft_itoa_base.c \
+
 
 CC = gcc
 OBJ = $(SRC:.c=.o)
@@ -27,15 +29,12 @@ all : $(NAME)
 	@$(CC) $(CFLAGS) -o $(NAME) $(SRC) -I libft $(HEADER)
 
 $(NAME) : $(OBJ)
-	@make -C $(NAME)
 	@$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(HEADER)
 
 clean :
-	@make -C $(NAME) clean
-	@/bin/rm -rf $(OBJ)
+	@/bin/rm -f $(OBJ)
 
 fclean : clean
-	@make -C $(NAME) fclean
-	@/bin/rm -rf $(NAME)
+	@/bin/rm -f $(NAME)
 
 re : fclean all

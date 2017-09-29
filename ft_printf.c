@@ -50,6 +50,6 @@ int			ft_printf(const char *format, ...)
 int			main(void)
 {
 	ft_printf("@@@@@%-0@@@@@%s@@@@@%d@@@@@%c\n");
-	printf("%-10.10hhs", "test");
+	printf("%-10.10s", "test");
 	return (0);
 }

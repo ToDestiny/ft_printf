@@ -11,48 +11,48 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int		count_digit(int num, int base)
+static int		ft_count_char_len(int num, int base)
 {
-	int	i;
+	int	len;
 
-	i = 1;
-	while (num > base - 1)
+	len = 1;
+	if (num < 0)
+		num = -num;
+	while (num >= base)
 	{
 		num = num / base;
-		i++;
+		len++;
 	}
-	return (i);
+	return (len);
 }
 
 char 	*ft_itoa_base(int num, int base)
 {
 	int 	i;
-	int		j;
-	int		neg;
-	char	*str;
+	char	*dest;
+	char	*tab;
 
 	i = 0;
-	neg = 0;
+	tab = NULL;
+	dest = NULL;
 	
-	j = count_digit(num, base);
-	if (!(str = (char *)malloc(sizeof((char * j) + 1))
-				   return (END);
-
-	if (num == '0')
+	if (base == 10)
+		return (ft_itoa(num));
+	if (base < 2 && base > 16)
+		return (NULL);
+	if (num < 0)
+		return (NULL);
+	if ((tab = (char *)malloc(sizeof(char) * 17)))
+		ft_strcpy(tab, "0123456789ABCDEF");
+	i = ft_count_char_len(num, base);
+	if (!(dest = (char *)malloc(sizeof(char) * (i + 2))))
+		return (NULL);
+	dest [i + 1] = '\0';
+	while (i >= 0)
 	{
-		str[i] = '0';
-		str[i++] = '\0';
-		return (str);
+		dest[i--] = tab[num % base];
+		num = num / base;
 	}
-
-		
-	//negatif
-	//
-	//process
-	//
-	//negative -
-	//
-	//string terminator
-	//
-	//reverse
+	free (tab);
+	return (dest);
 }
