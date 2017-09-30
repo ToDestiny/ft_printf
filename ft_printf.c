@@ -16,34 +16,34 @@
 int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
-	t_type		var;
+	int			len;
 
+	len = 0;
 	va_start(ap, format);
  	if (!format)
 	{
 		ft_putstr("No format input");
 		return (END);
 	}
-	ft_init_struc(&var);
 	while (*format)
 	{
 		if (*format == '%' && *(format + 1) != '%')
 		{
-			ft_parse_flags(&var, &format);
-			printf("sign == %d\nleft_justify == %d\nspace == %d\nhashtag == %d\npad == %d\n", var.sign, var.left_justify, var.space, var.hashtag, var.pad);
-			// width
-			// precision
-			// write %s etc
-			ft_init_struc(&var);
+			format++;
+			if (*format == '%')
+				count += ft_putchar_fd(*format, 1);
+			else
+				count += ft_putchar_fd(*format, 1);
 		}
 		else
 		{
 			ft_putchar_fd(*format, 1);
-			format++;
+			len++;
 		}
+		format++;
 	}
 	va_end(ap);
-	return (END);
+	return (len);
 }
 
 
