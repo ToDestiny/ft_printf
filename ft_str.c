@@ -12,22 +12,10 @@
 
 #include "ft_printf.h"
 
-static int      ft_count(unsigned int n, int i)
+int     ft_str(char *str)
 {
-    if (n >= 10)
-        return (ft_count(n / 10, i + 1));
-    else
-        return (i + 1);
-    return (END);
-}
-
-int             ft_count_int(int n)
-{
-    int             len;
-    unsigned int    tmp;
-
-    tmp = (n < 0) ? (n * -1) : n;
-    len = ft_count(tmp, 0);
-    len+= (n < 0) ? 1 : 0;
-    return (len);
+    if (str == NULL)
+        return (ft_str("(null)"));
+    ft_putstr(str);
+    return ((int)ft_strlen(str));
 }
