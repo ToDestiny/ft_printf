@@ -15,7 +15,7 @@
 int     ft_octal(unsigned int n)
 {
     if (n >= 8)
-        return (ft_octal(n / 8) + ft_hex(n % 8));
+        return (ft_octal(n / 8) + ft_hex_count(n % 8));
     else
         return (ft_char(48 + n));
 }

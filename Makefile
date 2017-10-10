@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 SRC = ft_printf.c \
 	ft_char.c \
 	ft_count_int.c \
@@ -22,13 +22,15 @@ SRC = ft_printf.c \
 	ft_str.c \
 	ft_nbr_lf.c \
 	ft_octal.c \
-	ft_putnbr_ld \
+	ft_putnbr_ld.c \
 
 CC = gcc
 OBJ = $(SRC:.c=.o)
 HEADER = ./libft/libft.a
 CFLAGS = -Wall -Werror -Wextra
 INC = ./ft_printf.h
+RM = rm -f
+CLEAN = clean
 
 all : $(NAME)
 
@@ -40,10 +42,11 @@ $(NAME) : $(OBJ)
 	@ranlib $(NAME)
 
 clean :
-	@/bin/rm -f $(OBJ)
+	$(RM) $(OBJ)
+	@$(CLEAN)
 
 fclean : clean
-	@/bin/rm -f $(NAME)
+	$(RM) $(NAME)
 
 re : fclean all
 

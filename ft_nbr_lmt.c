@@ -20,12 +20,12 @@ int     ft_nbr_lmt(long n)
     {
         n *= -1;
         ft_char('-');
-        ft_nbr_ld(n);
+        ft_nbr_lmt(n);
     }
     else if (n >= 10)
     {
-        ft_nbr_ld(n / 10);
-        ft_nbr_ld(n % 10);
+        ft_nbr_lmt(n / 10);
+        ft_nbr_lmt(n % 10);
     }
     else
         return (ft_char(48 + n));

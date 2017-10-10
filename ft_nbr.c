@@ -15,5 +15,5 @@
 int     ft_nbr(int num)
 {
     ft_putnbr(num);
-    return (ft_count(num));
+    return (ft_count_int(num));
 }
