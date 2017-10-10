@@ -12,8 +12,22 @@
 
 #include "ft_printf.h"
 
-int     ft_numbers(int num)
+int     ft_nbr_ld(long n)
 {
-    ft_putnbr(num);
-    return (ft_count(num));
+    if (n == -9223372036854775807)
+        ft_str("-9223372036854775807");
+    else if (n < 0)
+    {
+        n *= -1;
+        ft_char('-');
+        ft_nbr_ld(n);
+    }
+    else if (n >= 10)
+    {
+        ft_nbr_ld(n / 10);
+        ft_nbr_ld(n % 10);
+    }
+    else
+        return (ft_char(48 + n));
+    return (OK);
 }

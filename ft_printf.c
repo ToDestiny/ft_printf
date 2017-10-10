@@ -32,7 +32,7 @@ int			ft_parse(const char *format, int i, va_list ap)
 	else if (format[i] == 'l')
 		return (ft_long(format, i, ap));
 	else if (format[i] == 'f')
-		return (ft_nbr_lf(va_arg(ap, double)));
+		return (ft_nbr_ld(va_arg(ap, double)));
 	else if (format[i] == ' ')
 		return (END);
 	else
