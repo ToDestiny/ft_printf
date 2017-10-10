@@ -15,6 +15,6 @@
 int     ft_long(const char *format, int i, va_list ap)
 {
     if (format[i + 1] == 'd')
-        return (ft_nbr_ld(va_arg(ap, long)));
+        return (ft_nbr_lmt(va_arg(ap, long)));
     return (END);
 }

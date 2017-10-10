@@ -25,7 +25,7 @@ int     ft_hex(const char *format, int i, va_list ap)
     if (format[i] == 'x')
         return (ft_hex_count(va_arg(ap, unsigned int)));
     if (format[i] == 'X')
-        return (ft_hexm(va_arg(ap, unsigned int)));
+        return (ft_hex_maj(va_arg(ap, unsigned int)));
     if (format[i] == 'p')
         return (ft_ptr(va_arg(ap, void *)));
     return (OK);
@@ -39,11 +39,19 @@ int     ft_hexl_count(unsigned long n)
         return (ft_char(HEX[n]));
 }
 
+int     ft_hex_maj(unsigned int n)
+{
+    if (n >= 16)
+        return (ft_hex_maj(n / 16) + ft_hex_maj(n % 16));
+    else
+        return (ft_char(ft_toupper(HEX[n])));
+}
+
 int     ft_ptr(void *n)
 {
     int i;
 
-    if (n = NULL)
+    if (n == NULL)
         return (i = ft_str("0x0"));
     i = ft_str("0x");
     return (ft_hexl_count((unsigned long)n) + i);

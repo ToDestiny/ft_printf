@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unicode.c                                          :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/22 15:18:02 by acolas            #+#    #+#             */
-/*   Updated: 2017/08/22 15:20:48 by acolas           ###   ########.fr       */
+/*   Created: 2017/09/06 19:24:08 by acolas            #+#    #+#             */
+/*   Updated: 2017/09/13 17:45:25 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
-int		main(void)
+void       ft_putnbr_ld(long n)
 {
-	unsigned char c;
-
-	c = 0xe1;
-	write(1, &c, 1);
-	c = 0x88;
-	write(1, &c, 1);	
-	c = 0x0a;
-	write(1, &c, 1);
-	return (0);
-
-}	
+    if (n == -9223372036854775807)
+        ft_putstr("-9223372036854775807");
+    else if (n < 0)
+    {
+        n *= -1;
+        ft_putchar('-');
+        ft_putnbr_ld(n);
+    }
+    else if (n >= 10)
+    {
+        ft_putnbr_ld(n / 10);
+        ft_putnbr_ld(n % 10);
+    }
+    else
+        ft_putchar(48 + n);
+}

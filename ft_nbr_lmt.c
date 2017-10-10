@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int     ft_nbr_ld(long n)
+int     ft_nbr_lmt(long n)
 {
     if (n == -9223372036854775807)
         ft_str("-9223372036854775807");

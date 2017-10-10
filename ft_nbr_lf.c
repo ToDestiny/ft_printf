@@ -10,7 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_parse_width(t_type var, const char **format)
+#include "ft_printf.h"
+
+int     ft_nbr_lf(double n)
 {
-    
+    long    nb;
+
+    ft_nbr_lmt((long)n);
+    nb = n * 1000000;
+    n = (long)n * 1000000;
+    ft_char('.');
+    return (ft_nbr_lmt(nb - n) + 1);
 }

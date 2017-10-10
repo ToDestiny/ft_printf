@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struc.c                                    :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 21:12:15 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/13 15:53:13 by acolas           ###   ########.fr       */
+/*   Created: 2017/09/06 19:24:08 by acolas            #+#    #+#             */
+/*   Updated: 2017/09/13 17:45:25 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_init_struc(t_type *var)
+int     ft_octal(unsigned int n)
 {
-	var->sign = 0;
-	var->left_justify = 0;
-	var->space = 0;
-	var->hashtag = 0;
-	var->pad = 0;
-
-	var->width = 0;
-	var->precision = 0;
-	return;
+    if (n >= 8)
+        return (ft_octal(n / 8) + ft_hex(n % 8));
+    else
+        return (ft_char(48 + n));
 }

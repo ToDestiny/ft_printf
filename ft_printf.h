@@ -27,5 +27,17 @@ int 	ft_printf(const char *format, ...);
 int     ft_hex(const char *format, int i, va_list ap);
 int     ft_char(char c);
 int     ft_count_int(int n);
+int     ft_long(const char *format, int i, va_list ap);
+int     ft_nbr_lmt(long n);
+int     ft_nbr(int num);
+int     ft_str(char *str);
+int     ft_unbr(unsigned int n);
+int     ft_nbr_lf(double n);
+int     ft_octal(unsigned int n);
+void    ft_putnbr_ld(long n);
+int     ft_hex_count(unsigned int n);
+int     ft_hexl_count(unsigned long n);
+int     ft_hex_maj(unsigned int n);
+int     ft_ptr(void *n);
 
 #endif
