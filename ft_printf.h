@@ -39,5 +39,6 @@ int     ft_hex_count(unsigned int n);
 int     ft_hexl_count(unsigned long n);
 int     ft_hex_maj(unsigned int n);
 int     ft_ptr(void *n);
+int		ft_parse(const char *format, int i, va_list ap);
 
 #endif

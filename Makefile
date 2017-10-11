@@ -42,12 +42,12 @@ $(NAME) : $(OBJ)
 	@ranlib $(NAME)
 
 clean :
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 	@$(CLEAN)
 
 fclean : clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : clean fclean re all

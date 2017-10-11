@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
 
 int			ft_parse(const char *format, int i, va_list ap)
@@ -73,12 +72,4 @@ int			ft_printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (len);
-}
-
-
-int			main(void)
-{
-	ft_printf("@@@@@%-0@@@@@%s@@@@@%d@@@@@%c\n");
-	printf("%-10.10s", "test");
-	return (0);
 }
