@@ -40,5 +40,10 @@ int     ft_hexl_count(unsigned long n);
 int     ft_hex_maj(unsigned int n);
 int     ft_ptr(void *n);
 int		ft_parse(const char *format, int i, va_list ap);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putnbr(int n);
+void	ft_putstr(char const *s);
+size_t	ft_strlen(const char *str);
+int		ft_toupper(int c);
 
 #endif
