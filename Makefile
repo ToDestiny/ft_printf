@@ -44,15 +44,15 @@ $(NAME) : $(LIBFT) $(OBJ)
 	@ranlib $(NAME)
 
 $(LIBFT):
-	make -C $(DIR_LIB)
+	@make -C $(DIR_LIB)
 
 clean:
 	@make clean -C $(DIR_LIB)
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean: clean
 	@make fclean -C $(DIR_LIB) 
-	$(RM) $(NAME) $(HEADER)
+	@$(RM) $(NAME) $(HEADER)
 
 re: fclean all
 
