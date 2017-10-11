@@ -31,23 +31,29 @@ CFLAGS = -Wall -Werror -Wextra
 INC = ./ft_printf.h
 RM = rm -f
 CLEAN = clean
+DIR_LIB	= libft
+LIBFT	= $(DIR_LIB)/libft.a
 
 all : $(NAME)
 
 %.o:%.c $(INC)
 	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
-$(NAME) : $(OBJ)
+$(NAME) : $(LIBFT) $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
-clean :
-	@$(RM) $(OBJ)
-	@$(CLEAN)
+$(LIBFT):
+	make -C $(DIR_LIB)
 
-fclean : clean
-	@$(RM) $(NAME)
+clean:
+	@make clean -C $(DIR_LIB)
+	$(RM) $(OBJ)
 
-re : fclean all
+fclean: clean
+	@make fclean -C $(DIR_LIB) 
+	$(RM) $(NAME) $(HEADER)
+
+re: fclean all
 
 .PHONY : clean fclean re all
