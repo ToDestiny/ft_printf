@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
+SRC_DIR = ./src/
 SRC = ft_printf.c \
 	ft_char.c \
 	ft_count_int.c \
@@ -25,23 +26,17 @@ SRC = ft_printf.c \
 	ft_putnbr_ld.c \
 
 CC = gcc
-OBJ = $(SRC:.c=.o)
-HEADER = ./libft/libft.a
+OBJ = $(SRC:%.c=%.o)
 CFLAGS = -Wall -Werror -Wextra
-INC = ./ft_printf.h
 RM = rm -f
-CLEAN = clean
 DIR_LIB	= libft
 LIBFT	= $(DIR_LIB)/libft.a
 
 all : $(NAME)
 
-%.o:%.c $(INC)
-	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
-
-$(NAME) : $(LIBFT) $(OBJ)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+$(NAME): $(LIBFT) $(OBJ)
+	@gcc $(CFLAGS) -c $(addprefix $(SRC_DIR)/,$(SRC))
+	@ar -rc $(NAME) $(OBJ) ./libft/*.o
 
 $(LIBFT):
 	@make -C $(DIR_LIB)
