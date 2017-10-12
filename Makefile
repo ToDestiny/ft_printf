@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRC_DIR = ./src/
+SRC_DIR = ./src
 SRC = ft_printf.c \
 	ft_char.c \
 	ft_count_int.c \
@@ -34,8 +34,8 @@ LIBFT	= $(DIR_LIB)/libft.a
 
 all : $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
-	@gcc $(CFLAGS) -c $(addprefix $(SRC_DIR)/,$(SRC))
+$(NAME): $(LIBFT)
+	@$(CC) $(CFLAGS) -c $(addprefix $(SRC_DIR)/,$(SRC))
 	@ar -rc $(NAME) $(OBJ) ./libft/*.o
 
 $(LIBFT):
