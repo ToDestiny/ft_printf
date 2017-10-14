@@ -12,21 +12,29 @@
 
 #include "ft_printf.h"
 
-void       ft_putnbr_ld(long n)
+void       ft_print_num_wchar_zero(t_list *list, size_t *ret)
 {
-    if (n == -9223372036854775807)
-        ft_putstr("-9223372036854775807");
-    else if (n < 0)
+    if (!ZERO(list->flag))
     {
-        n *= -1;
-        ft_putchar('-');
-        ft_putnbr_ld(n);
-    }
-    else if (n >= 10)
-    {
-        ft_putnbr_ld(n / 10);
-        ft_putnbr_ld(n % 10);
+        while((list->width))
+        {
+            ft_putchar(' ');
+            (*ret)++;
+        }
     }
     else
-        ft_putchar(48 + n);
+        while((list->width)--)
+        {
+            ft_putchar('0');
+            (*ret)++;
+        }
+}
+
+void        ft_print_null_char(t_print *list, size_t *ret)
+{
+    (*ret) += list->width;
+    list->width--;
+    while(list->width--)
+        ft_putchar('0');
+    ft_putchar('\0');
 }
