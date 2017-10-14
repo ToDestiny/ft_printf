@@ -16,6 +16,10 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "../libft/libft.h"
+# include <stdio.h>
+# include <limits.h>
+# include <wchar.h>
+# include <stdlib.h>
 
 # define FLAG(fm) (fm == '#'|| fm == '0'|| fm == '-' || fm == '+' || fm == 32)
 # define LDECIMAL(fm) (fm == 'd'|| fm == 'i')

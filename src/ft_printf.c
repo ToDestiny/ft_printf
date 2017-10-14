@@ -12,64 +12,17 @@
 
 #include "ft_printf.h"
 
-int			ft_parse(const char *format, int i, va_list ap)
+int		ft_printf(const char *fm, ...)
 {
-	if (format[i] == 's')
-		return (ft_str(va_arg(ap, char *)));
-	else if (format[i] == 'd'|| format[i] == 'i')
-		return (ft_nbr(va_arg(ap, int)));
-	else if (format[i] == 'c')
-		return (ft_char(va_arg(ap, int)));
-	else if (format[i] == 'u')
-		return(ft_unbr(va_arg(ap, unsigned int)));
-	else if (format[i] == 'Z')
-		return (ft_char('Z'));
-	else if (format[i] == 'o')
-		return (ft_octal(va_arg(ap, int)));
-	else if (format[i] == 'x'|| format[i] == 'X'|| format[i] == 'p')
-		return (ft_hex(format, i, ap));
-	else if (format[i] == 'l')
-		return (ft_long(format, i, ap));
-	else if (format[i] == 'f')
-		return (ft_nbr_lf(va_arg(ap, double)));
-	else if (format[i] == ' ')
-		return (END);
-	else
-		return (ft_char(format[i]));
-	return (END);
-}
+	size_t	ret;
+	va_list	args;
 
-int			ft_printf(const char *format, ...)
-{
-	va_list		ap;
-	int			len;
-	int			i;
-
-	len = 0;
-	i = 0;
-	va_start(ap, format);
- 	if (!format)
-	{
-		ft_putstr("No format input");
+	ret = 0;
+	va_start(args, fm);
+	if (!*fm)
 		return (END);
-	}
-	while (format[i])
-	{
-		if (format[i] == '%')
-		{
-			i++;
-			if (format[i] == '%')
-				len += ft_char(format[i]);
-			else
-				len += ft_parse(format, i, ap);
-		}
-		else if (format[i] != '%')
-		{
-			ft_putchar_fd(*format, 1);
-			len++;
-		}
-		i++;
-	}
-	va_end(ap);
-	return (len);
+		ret = ft_check_fm(&args, fm, ret);
+		va_ends(args);
+		if (ret > INT_MAX)
+			return (ERROR);
 }
