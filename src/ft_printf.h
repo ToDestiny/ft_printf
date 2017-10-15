@@ -64,8 +64,7 @@ typedef struct s_print
 
 int             ft_printf(const char *fm, ...);
 size_t			ft_check_fm(va_list *args, const char *fm, size_t ret);
-int				ft_if_percent(va_list *args, const char **fm, t_print **list,
-							size_t *ret);
+int		ft_is_percent(va_list *args, const char **fm, t_print **list, size_t *ret);
 const char		*ft_get_format(t_print *list, const char *fm);
 void			ft_get_flag(t_print *list, char fm);
 t_print			*ft_new_list(t_print *list);
@@ -83,7 +82,7 @@ size_t			ft_print_left(t_print *list, size_t ret);
 size_t			ft_print_right(t_print *list, size_t ret);
 void			ft_print_right_post(t_print *list, size_t *ret);
 void			ft_check_converse(t_print *list, const char **fm);
-char			*ft_handle_wchar(wchar_t wchar);
+char            *handle_wchar(wchar_t wchar)
 char			*ft_push_wchar(wchar_t *wchar, t_print *list);
 int				ft_wchar_len(wchar_t wchar);
 char			*ft_push_char(t_print *list, char *s);
