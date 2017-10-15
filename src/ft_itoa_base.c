@@ -12,22 +12,35 @@
 
 #include "ft_printf.h"
 
-static int      ft_count(unsigned int n, int i)
+void    f(size_t value, size_t base, char *str, size_t *i)
 {
-    if (n >= 10)
-        return (ft_count(n / 10, i + 1));
-    else
-        return (i + 1);
-    return (END);
+    char    *tmp;
+
+    tmp = "0123456789ABCDEF";
+    if (value >= base)
+        f(value / base, base, str, i);
+    str[(*i)++] = tmp [(value % base)];
 }
 
-int             ft_count_int(int n)
+char    *ft_itoa_base(ssize_t value, size_t base)
 {
-    int             len;
-    unsigned int    tmp;
+    size_t  i;
+    char    *str;
 
-    tmp = (n < 0) ? (n * -1) : n;
-    len = ft_count(tmp, 0);
-    len+= (n < 0) ? 1 : 0;
-    return (len);
+    i = 0;
+    if (base < 2 || base > 16 || !(str = (char*)malloc(32)))
+        return (END);
+    f(value, base, str, &i);
+    str[i] = '\0';
+    return (str);
+}
+
+char    *ft_low(char *str)
+{
+    int     i;
+
+    i = 0;
+    while (str[i])
+        str[i++] |= ' ';
+    return (str);
 }
