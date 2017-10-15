@@ -101,4 +101,15 @@ void    ft_get_digit(T_print *list, va_list *args)
     else if ((LDECIMAL(list->conversion) && list->l % 2)
         || list->conersion == 'D')
         digit = va_arg(*args, long);
+    else if (LDECIMAL (list->conversion) && (list->size == 'L'))
+        digit = va_arg(*args, long long);
+    else if (LDECIMAL(list->conversion) && (list->size == 'j'))
+        digit = va_arg(*args, intmax_t);
+    else if (LDECIMAL(list->conversion) && (list->size == 'z'))
+        digit = va_arg(*args, ssize_t);
+    else
+        digit = va_arg(*args, int);
+    (digit < 0) ? list->sign = 1 : 0;
+    digit = (digit < 0) ? (-digit) : digit;
+    list->buf = ft_itoa_base(digit, 10);
 }
