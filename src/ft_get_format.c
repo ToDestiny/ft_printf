@@ -12,9 +12,29 @@
 
 #include "ft_printf.h"
 
-int     ft_long(const char *format, int i, va_list ap)
+const char      *ft_get_format(t_print *list, const char *fm)
 {
-    if (format[i + 1] == 'd')
-        return (ft_nbr_lmt(va_arg(ap, long)));
-    return (END);
+    while(*fm && ft_strchr("-+ #0.123456789lhzj", *fm))
+    {
+        while (FLAG(*fm))
+            ft_get_flag(list, *(fm++));
+        if ((*fm) >= '1' && (*fm) <= '9')
+        {
+            list->width = 0;
+            while (ft_isdigit(*fm))
+                list->width = (list->width * 10) + (*fm++) - '0';
+        }
+        if (*fm == '.')
+        {
+            list->dot = 1;
+            list->precision = 0;
+            while (ft_isdigit((*(++fm))))
+                list->precision = (list->precision * 10) + (*fm) - '0';
+        }
+        while (*fm && ft_strchr("lhzj", *fm))
+            ft_get_size(list, *(fm++));
+    }
+    ft_check_size(list);
+    ft_check_converse(list, &fm);
+    return (fm);
 }
