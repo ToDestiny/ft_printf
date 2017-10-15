@@ -23,7 +23,8 @@
 
 # define FLAG(fm) (fm == '#'|| fm == '0'|| fm == '-' || fm == '+' || fm == 32)
 # define LDECIMAL(fm) (fm == 'd'|| fm == 'i')
-# define UDECIMAL(fm) (fm == 'd'|| fm == 'D'|| fm == 'i')
+# define DECIMAL(fm) (fm == 'd'|| fm == 'D' || fm == 'i')
+# define UDECIMAL(fm) (fm == 'u'|| fm == 'U')
 # define UOCT(fm) (fm == 'o'|| fm == 'O')
 # define UHEX(fm) (fm == 'x'|| fm == 'X')
 # define USHORT(fm) (fm == 'o'|| fm == 'u'|| fm == 'x'|| fm == 'X')
@@ -42,7 +43,7 @@
 # define OK 1
 # define END 0
 
-typdef struct s_print
+typedef struct s_print
 {
     int     flag;
     size_t  width;
@@ -61,7 +62,7 @@ typdef struct s_print
     int     dot;
 }               t_print;
 
-int     ft_printf(const char *fm, ...);
+int             ft_printf(const char *fm, ...);
 size_t			ft_check_fm(va_list *args, const char *fm, size_t ret);
 int				ft_if_percent(va_list *args, const char **fm, t_print **list,
 							size_t *ret);

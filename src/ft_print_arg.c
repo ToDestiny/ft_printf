@@ -42,7 +42,7 @@ void    ft_print_arg(t_print *list, size_t *ret)
         ft_print_right(list, *ret);
 }
 
-void    ft_print_left(t_print *list, size_t ret)
+size_t    ft_print_left(t_print *list, size_t ret)
 {
     ft_putstr(list->prefix);
     ret += ft_strlen(list->prefix);

@@ -37,7 +37,6 @@ void    ft_get_char(t_print *list, va_list *args)
             list->buf = ft_strnew(1);
             (*list->buf) = c;
         }
-        }
     }
 }
 
@@ -76,7 +75,7 @@ void    ft_get_unsigned(t_print *list, va_list *args)
         unsign = va_arg(*args, unsigned long);
     else if (USHORT(list->conversion) && (list->size == 'j'))
         unsign = va_arg(*args, unsigned long long);
-    else if ((USHORYT(list->conversion) && (list->size == 'z'))
+    else if ((USHORT(list->conversion) && (list->size == 'z'))
         || (list->conversion == 'p'))
         unsign = va_arg(*args, size_t);
     else
@@ -90,16 +89,16 @@ void    ft_get_unsigned(t_print *list, va_list *args)
             ft_itoa_base(unsign, 16) : ft_low(ft_itoa_base(unsign, 16));
 }
 
-void    ft_get_digit(T_print *list, va_list *args)
+void    ft_get_digit(t_print *list, va_list *args)
 {
     ssize_t digit;
 
     if (LDECIMAL(list->conversion) && (list->size == 'H'))
-        digit = (char)va_arg(*arg, int);
+        digit = (char)va_arg(*args, int);
     else if (LDECIMAL(list->conversion) && (list->size == 'h'))
         digit = (short)va_arg(*args, int);
     else if ((LDECIMAL(list->conversion) && list->l % 2)
-        || list->conersion == 'D')
+        || list->conversion == 'D')
         digit = va_arg(*args, long);
     else if (LDECIMAL (list->conversion) && (list->size == 'L'))
         digit = va_arg(*args, long long);

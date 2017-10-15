@@ -19,13 +19,13 @@ void    ft_check_prefix(t_print *list)
         if (list->sign == 1)
             *(list->prefix) = '-';
         else if (PLUS(list->flag))
-            *(list->flag) = '+';
+            *(list->prefix) = '+';
         else if (SPACE(list->flag))
             *(list->prefix) = ' ';
     }
     else if (UOCT(list->conversion) && SHARP(list->flag) && *list->buf != '0')
         *(list->prefix) = '0';
-    else if (UHEX(list->conversion) SHARP(list->flag) && *list->buf != '0')
+    else if (UHEX(list->conversion) && SHARP(list->flag) && *list->buf != '0')
         list->prefix = (list->conversion == 'x') ?
             ft_strjoin(list->prefix, "0x") : ft_strjoin(list->prefix, "0x");
     else if (list->conversion == 'p')
@@ -55,7 +55,7 @@ void    ft_check_size(t_print *list)
     }
 }
 
-t_print *ft_new_list(t_list *list)
+t_print *ft_new_list(t_print *list)
 {
     if (!(list = (t_print*)ft_memalloc(sizeof(t_print))))
         return (NULL);

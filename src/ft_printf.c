@@ -22,7 +22,7 @@ int		ft_printf(const char *fm, ...)
 	if (!*fm)
 		return (END);
 		ret = ft_check_fm(&args, fm, ret);
-		va_ends(args);
+		va_end(args);
 		if (ret > INT_MAX)
 			return (ERROR);
 		else
@@ -33,7 +33,7 @@ int		ft_is_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
 {
 	if (*(*fm) == '\0')
 		return (ERROR);
-	else if (*(fm) == '%')
+	else if (*(*fm) == '%')
 	{
 		write(1, "%", 1);
 		(*ret)++;
@@ -47,7 +47,7 @@ int		ft_is_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
 	return (END);
 }
 
-dize_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
+size_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
 {
 	t_print *list;
 
@@ -73,7 +73,7 @@ dize_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
 size_t	go_push_it(t_print *list, va_list *args, size_t ret)
 {
 	ft_get_arg(list, args);
-	if(*list->buf) == '0'&& (UOCT(list->conversion))
+	if (*(list->buf) == '0' && (UOCT(list->conversion))
 		&& list->dot && !(list->precision) && SHARP(list->flag))
 	{
 		ft_putchar('0');
@@ -82,13 +82,13 @@ size_t	go_push_it(t_print *list, va_list *args, size_t ret)
 	else if (STRING(list->conversion) && list->dot && !(list->precision)
 		&& list->width)
 		ft_print_num_wchar_zero(list, &ret);
-	else if (*list->buf) == '0'&& SYMB(list->conversion)
-		&& list->dot && list->width && ZERO(list->flag) && !MINUS(list->flag)
+	else if (*(list->buf) == '0' && SYMB(list->conversion)
+		&& list->dot && list->width && ZERO(list->flag) && !MINUS(list->flag))
 		ft_print_null_char(list, &ret);
-	else if (*list->buf) == '0'&& NUM(list->conversion)
+	else if (*(list->buf) == '0' && (NUM(list->conversion))
 		&& list->dot && !(list->precision) && list->width)
 		ft_print_num_wchar_zero(list, &ret);
-	else if (*list->buf) == '0'&& (NUM(list->conversion))
+	else if (*(list->buf) == '0' && (NUM(list->conversion))
 		&& list->dot && !(list->precision) && !list->width)
 		;
 	else

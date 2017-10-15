@@ -37,12 +37,12 @@ char    *ft_push_wchar(wchar_t *wchar, t_print *list)
     str = ft_strnew(0);
     while (*wchar)
     {
-        len += ft_wchar(*wchar);
+        len += ft_wchar_len(*wchar);
         if (list->precision >= len || !list->precision)
             str = ft_strjoin(str, ft_handle_wchar(*wchar));
         else
             break;
-        wchar++
+        wchar++;
     }
     return (str);
 }
@@ -55,7 +55,7 @@ int     ft_wchar_len(wchar_t wchar)
         return (2);
     else if (wchar <= 0x0FFFF)
         return (3);
-    else if (Wchar <= 0x10FFFF)
+    else if (wchar <= 0x10FFFF)
         return (4);
     return (END);
 }

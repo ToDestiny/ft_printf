@@ -13,17 +13,14 @@
 NAME = libftprintf.a
 SRC_DIR = ./src
 SRC = ft_printf.c \
-	ft_char.c \
-	ft_count_int.c \
-	ft_hex.c \
-	ft_long.c \
-	ft_nbr_lmt.c \
-	ft_nbr.c \
-	ft_unbr.c \
-	ft_str.c \
-	ft_nbr_lf.c \
-	ft_octal.c \
-	ft_putnbr_ld.c \
+	ft_check_format.c \
+	ft_get_arg.c \
+	ft_get_format.c \
+	ft_itoa_base.c \
+	ft_print_arg.c \
+	ft_print_wchar.c \
+	ft_print_zero_arg.c \
+	
 
 CC = gcc
 OBJ = $(SRC:%.c=%.o)

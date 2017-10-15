@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void       ft_print_num_wchar_zero(t_list *list, size_t *ret)
+void       ft_print_num_wchar_zero(t_print *list, size_t *ret)
 {
     if (!ZERO(list->flag))
     {
