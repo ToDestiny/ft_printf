@@ -24,7 +24,7 @@ SRC = ft_printf.c \
 
 CC = gcc
 OBJ = $(SRC:%.c=%.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -c
 RM = rm -f
 DIR_LIB	= libft
 LIBFT	= $(DIR_LIB)/libft.a

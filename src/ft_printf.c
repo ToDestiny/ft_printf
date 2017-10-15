@@ -29,7 +29,7 @@ int		ft_printf(const char *fm, ...)
 			return((int)ret);
 }
 
-int		ft_is_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
+int		ft_if_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
 {
 	if (*(*fm) == '\0')
 		return (ERROR);

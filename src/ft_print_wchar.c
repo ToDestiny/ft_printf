@@ -60,7 +60,7 @@ int     ft_wchar_len(wchar_t wchar)
     return (END);
 }
 
-char    *handle_wchar(wchar_t wchar)
+char    *ft_handle_wchar(wchar_t wchar)
 {
     char    *str;
     int     len;
