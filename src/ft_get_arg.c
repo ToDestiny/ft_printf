@@ -73,8 +73,10 @@ void    ft_get_unsigned(t_print *list, va_list *args)
     else if ((USHORT(list->conversion) && (list->size == 'l')) 
         || ULONG(list->conversion))
         unsign = va_arg(*args, unsigned long);
-    else if (USHORT(list->conversion) && (list->size == 'j'))
+    else if (USHORT(list->conversion) && (list->size == 'L'))
         unsign = va_arg(*args, unsigned long long);
+    else if (USHORT(list->conversion) && (list->size == 'j'))
+        unsign = va_arg(*args, uintmax_t);
     else if ((USHORT(list->conversion) && (list->size == 'z'))
         || (list->conversion == 'p'))
         unsign = va_arg(*args, size_t);
