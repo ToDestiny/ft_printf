@@ -21,12 +21,12 @@ int		ft_printf(const char *fm, ...)
 	va_start(args, fm);
 	if (!*fm)
 		return (END);
-		ret = ft_check_fm(&args, fm, ret);
-		va_end(args);
-		if (ret > INT_MAX)
-			return (ERROR);
-		else
-			return((int)ret);
+	ret = ft_check_fm(&args, fm, ret);
+	va_end(args);
+	if (ret > INT_MAX)
+		return (ERROR);
+	else
+		return((int)ret);
 }
 
 int		ft_if_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
@@ -85,7 +85,7 @@ size_t	go_push_it(t_print *list, va_list *args, size_t ret)
 	else if (*(list->buf) == '0' && SYMB(list->conversion)
 		&& list->dot && list->width && ZERO(list->flag) && !MINUS(list->flag))
 		ft_print_null_char(list, &ret);
-	else if (*(list->buf) == '0' && (NUM(list->conversion))
+	else if (*(list->buf) == '0' && NUM(list->conversion)
 		&& list->dot && !(list->precision) && list->width)
 		ft_print_num_wchar_zero(list, &ret);
 	else if (*(list->buf) == '0' && (NUM(list->conversion))
