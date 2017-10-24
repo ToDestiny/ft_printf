@@ -27,7 +27,7 @@ void    ft_check_prefix(t_print *list)
         *(list->prefix) = '0';
     else if (UHEX(list->conversion) && SHARP(list->flag) && *list->buf != '0')
         list->prefix = (list->conversion == 'x') ?
-            ft_strjoin(list->prefix, "0x") : ft_strjoin(list->prefix, "0x");
+            ft_strjoin(list->prefix, "0x") : ft_strjoin(list->prefix, "0X");
     else if (list->conversion == 'p')
         list->prefix = ft_strjoin(list->prefix, "0x");
     return ;
