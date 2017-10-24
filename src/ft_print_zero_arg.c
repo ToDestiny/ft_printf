@@ -16,7 +16,7 @@ void       ft_print_num_wchar_zero(t_print *list, size_t *ret)
 {
     if (!ZERO(list->flag))
     {
-        while((list->width))
+        while((list->width)--)
         {
             ft_putchar(' ');
             (*ret)++;

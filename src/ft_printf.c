@@ -32,7 +32,7 @@ int		ft_printf(const char *fm, ...)
 int		ft_if_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
 {
 	if (*(*fm) == '\0')
-		return (ERROR);
+		return (OK);
 	else if (*(*fm) == '%')
 	{
 		write(1, "%", 1);
