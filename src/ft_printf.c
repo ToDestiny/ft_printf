@@ -67,6 +67,7 @@ size_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
 		if (*fm)
 			fm++;
 	}
+	while (1);
 	return (ret);
 }
 
@@ -94,4 +95,10 @@ size_t	go_push_it(t_print *list, va_list *args, size_t ret)
 	else
 		ft_print_arg(list, &ret);
 	return (ret);
+}
+
+int		main(void)
+{
+	ft_printf("NULL");
+	return (0);
 }
