@@ -93,5 +93,6 @@ char			*ft_low(char *str);
 void			ft_print_num_wchar_zero(t_print *list, size_t *ret);
 void			ft_print_null_char(t_print *list, size_t *ret);
 void			ft_print_right_pref(t_print *list, size_t *ret);
+void	        free_list(t_print **list);
 
 #endif
