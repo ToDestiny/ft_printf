@@ -113,9 +113,3 @@ size_t	go_push_it(t_print *list, va_list *args, size_t ret)
 		ft_print_arg(list, &ret);
 	return (ret);
 }
-
-int		main(void)
-{
-	ft_printf("NULL");
-	return (0);
-}
