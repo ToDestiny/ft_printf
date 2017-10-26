@@ -22,7 +22,7 @@ char    *ft_push_char(t_print *list, char *s)
     len = ((list->precision < ft_strlen(s)) && list->dot) ?
         list-> precision : ft_strlen(s);
     tmp = ft_strnew(len);
-    str = tmp;
+    str = ft_strsub(tmp, 0, len);
     while (len-- && *s)
         *tmp++ = *s++;
     return (str);
@@ -31,6 +31,8 @@ char    *ft_push_char(t_print *list, char *s)
 char    *ft_push_wchar(wchar_t *wchar, t_print *list)
 {
     char    *str;
+	char 	*tmp;
+	char	*tmp2;
     size_t  len;
 
     len = 0;
@@ -39,7 +41,14 @@ char    *ft_push_wchar(wchar_t *wchar, t_print *list)
     {
         len += ft_wchar_len(*wchar);
         if (list->precision >= len || !list->precision)
-            str = ft_strjoin(str, ft_handle_wchar(*wchar));
+		{
+			tmp = ft_strdup(str);
+			tmp2 = ft_handle_wchar(*wchar);
+			free(str);
+            str = ft_strjoin(tmp, tmp2);
+			free(tmp);
+			free(tmp2);
+		}
         else
             break;
         wchar++;
