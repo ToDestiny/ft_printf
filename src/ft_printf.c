@@ -84,7 +84,6 @@ size_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
 		if (*fm)
 			fm++;
 	}
-	while (1);
 	return (ret);
 }
 
