@@ -47,6 +47,19 @@ int		ft_if_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
 	return (END);
 }
 
+void	free_list(t_print **list)
+{
+	if ((*list)->buf != NULL)
+		free((*list)->buf);
+	if ((*list)->prefix != NULL)
+		free((*list)->prefix);
+	if ((*list) != NULL)
+	{
+		free((*list));
+		(*list) = NULL;
+	}
+}
+
 size_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
 {
 	t_print *list;
@@ -62,7 +75,11 @@ size_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
 		if (*fm && *fm++ == '%')
 		{
 			if (ft_if_percent(args, &fm, &list, &ret))
+			{
+				free_list(&list);
 				return (ret);
+			}
+			free_list(&list);
 		}
 		if (*fm)
 			fm++;

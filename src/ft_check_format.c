@@ -60,5 +60,6 @@ t_print *ft_new_list(t_print *list)
     if (!(list = (t_print*)ft_memalloc(sizeof(t_print))))
         return (NULL);
     list->prefix = ft_strnew(2);
+        list->buf = NULL;
     return (list);
 }
