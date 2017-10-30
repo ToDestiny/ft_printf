@@ -22,9 +22,13 @@ char    *ft_push_char(t_print *list, char *s)
     len = ((list->precision < ft_strlen(s)) && list->dot) ?
         list-> precision : ft_strlen(s);
     tmp = ft_strnew(len);
-    str = ft_strsub(tmp, 0, len);
+    if (tmp != NULL)
+        str = tmp;
+    else
+        str = NULL;
     while (len-- && *s)
         *tmp++ = *s++;
+	//free(tmp);
     return (str);
 }
 
