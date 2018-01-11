@@ -6,25 +6,28 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:24:08 by acolas            #+#    #+#             */
-/*   Updated: 2017/12/10 21:27:42 by acolas           ###   ########.fr       */
+/*   Updated: 2018/01/11 16:26:46 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_check_sign(t_print *list)
+{
+	if (list->sign == 1)
+		*(list->prefix) = '-';
+	else if (PLUS(list->flag))
+		*(list->prefix) = '+';
+	else if (SPACE(list->flag))
+		*(list->prefix) = ' ';
+}
 
 void	ft_check_prefix(t_print *list)
 {
 	char *tmp;
 
 	if (DECIMAL(list->conversion))
-	{
-		if (list->sign == 1)
-			*(list->prefix) = '-';
-		else if (PLUS(list->flag))
-			*(list->prefix) = '+';
-		else if (SPACE(list->flag))
-			*(list->prefix) = ' ';
-	}
+		ft_check_sign(list);
 	else if (UOCT(list->conversion) && SHARP(list->flag) && *list->buf != '0')
 		*(list->prefix) = '0';
 	else if (UHEX(list->conversion) && SHARP(list->flag) && *list->buf != '0')

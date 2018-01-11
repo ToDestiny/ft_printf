@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:24:08 by acolas            #+#    #+#             */
-/*   Updated: 2017/12/10 21:31:48 by acolas           ###   ########.fr       */
+/*   Updated: 2018/01/11 16:31:57 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ void	ft_print_arg(t_print *list, size_t *ret)
 			ft_strlen(list->prefix)) : 0;
 	}
 	else
-	{
 		list->len_p = (list->precision > ft_strlen(list->buf)) ?
 			(list->precision - ft_strlen(list->buf)) : 0;
-	}
 	list->len_w = (list->width > ft_strlen(list->buf)
 			+ list->len_p + ft_strlen(list->prefix)) ?
 		(list->width - ft_strlen(list->buf) -
