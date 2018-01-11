@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/18 16:46:07 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/13 15:52:26 by acolas           ###   ########.fr       */
+/*   Updated: 2017/12/10 21:10:22 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,29 @@
 # define OK 1
 # define END 0
 
-typedef struct s_print
+typedef struct	s_print
 {
-    int     flag;
-    size_t  width;
-    size_t  precision;
-    char    size;
-    int     sign;
-    char    *buf;
-    char    *prefix;
-    char    conversion;
-    size_t  len_p;
-    size_t  len_w;
-    int     l;
-    int     h;
-    int     z;
-    int     j;
-    int     dot;
-}               t_print;
+	int		flag;
+	size_t	width;
+	size_t	precision;
+	char	size;
+	int		sign;
+	char	*buf;
+	char	*prefix;
+	char	conversion;
+	size_t	len_p;
+	size_t	len_w;
+	int		l;
+	int		h;
+	int		z;
+	int		j;
+	int		dot;
+}				t_print;
 
-int             ft_printf(const char *fm, ...);
+int				ft_printf(const char *fm, ...);
 size_t			ft_check_fm(va_list *args, const char *fm, size_t ret);
-int	        	ft_if_percent(va_list *args, const char **fm, t_print **list, size_t *ret);
+int				ft_if_percent(va_list *args, const char **fm,
+		t_print **list, size_t *ret);
 const char		*ft_get_format(t_print *list, const char *fm);
 void			ft_get_flag(t_print *list, char fm);
 t_print			*ft_new_list(t_print *list);
@@ -82,7 +83,7 @@ size_t			ft_print_left(t_print *list, size_t ret);
 size_t			ft_print_right(t_print *list, size_t ret);
 void			ft_print_right_post(t_print *list, size_t *ret);
 void			ft_check_converse(t_print *list, const char **fm);
-char            *ft_handle_wchar(wchar_t wchar);
+char			*ft_handle_wchar(wchar_t wchar);
 char			*ft_push_wchar(wchar_t *wchar, t_print *list);
 int				ft_wchar_len(wchar_t wchar);
 char			*ft_push_char(t_print *list, char *s);
@@ -93,6 +94,6 @@ char			*ft_low(char *str);
 void			ft_print_num_wchar_zero(t_print *list, size_t *ret);
 void			ft_print_null_char(t_print *list, size_t *ret);
 void			ft_print_right_pref(t_print *list, size_t *ret);
-void	        free_list(t_print **list);
+void			free_list(t_print **list);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acolas <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:24:08 by acolas            #+#    #+#             */
-/*   Updated: 2017/09/13 17:45:25 by acolas           ###   ########.fr       */
+/*   Updated: 2017/12/10 21:11:42 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_printf(const char *fm, ...)
 	if (ret > INT_MAX)
 		return (ERROR);
 	else
-		return((int)ret);
+		return ((int)ret);
 }
 
 void	free_list(t_print **list)
@@ -42,7 +42,8 @@ void	free_list(t_print **list)
 	}
 }
 
-int		ft_if_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
+int		ft_if_percent(va_list *args, const char **fm,
+		t_print **list, size_t *ret)
 {
 	if (*(*fm) == '\0')
 		return (OK);
@@ -60,7 +61,6 @@ int		ft_if_percent(va_list *args, const char **fm, t_print **list, size_t *ret)
 	}
 	return (END);
 }
-
 
 size_t	ft_check_fm(va_list *args, const char *fm, size_t ret)
 {
